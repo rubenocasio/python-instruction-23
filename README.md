@@ -7,9 +7,9 @@ Welcome to Python Cohort - December 2023, where we dive into the exciting world 
 Before you begin, make sure you have Python installed on your system. You can download it from [python.org](https://www.python.org/downloads/).
 
 1. **Clone the Repository**:  
-   `git clone https://github.com/[YourGitHubUsername]/[YourRepoName].git`
+   `git clone https://github.com/rubenocasio/python-instruction-23.git`
 2. **Navigate to the Directory**:  
-   `cd [YourRepoName]`
+   `cd python-instruction-23`
 3. **Create a Virtual Environment** (Optional but recommended):  
    `python -m venv venv`
 4. **Activate the Virtual Environment**:  
@@ -45,13 +45,3 @@ Before you begin, make sure you have Python installed on your system. You can do
 - **Practice**: The best way to learn is by doing. Try creating your own small projects using Flask.
 - **Ask Questions**: If you're stuck, don't hesitate to ask for help.
 - **Read the Flask Documentation**: The [Flask Documentation](https://flask.palletsprojects.com/en/2.0.x/) is a great resource.
-
-## Contact
-
-For any queries regarding the course, feel free to reach out:  
-Email: [Your Email]  
-LinkedIn: [Your LinkedIn Profile]
-
----
-
-Feel free to modify and expand this template based on your course content and style. Good luck with your teaching!
