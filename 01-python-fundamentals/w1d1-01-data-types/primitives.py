@@ -120,6 +120,7 @@ x += 2
 
 # Built-in functions for numbers
 # abs, round
+
 # Math module
 import math
 
@@ -133,4 +134,10 @@ print(math.floor(pi))
 === === NONE === ===
 """
 # Why use None?
-# Constructor functions and casting
+# Represents the absence of a value or a null value
+def func_with_no_return():
+    print("This function has no return value")
+
+result = func_with_no_return()
+if result is None:
+    print("No value returned")
