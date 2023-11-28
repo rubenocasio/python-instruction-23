@@ -29,21 +29,30 @@ const expected4 = 'GIT';
  * @returns {String} The acronym.
  */
 function acronymize(str) {
-    // Step 1: Trim the input string to remove any extra spaces at the start and end
+    // Step 1: Trim the input string to remove any extra spaces at the start and end - .trim()
+    str = str.trim();
 
     // Step 2: Initialize a variable to hold the acronym, initially empty
+    let acronym = '';
 
-    // Step 3: Split the input string into an array of words
+    // Step 3: Split the input string into an array of words - .split()
+    const wordsArr = str.split(' ');
 
     // Step 4: Loop through each word in the array
+    for (const word of wordsArr) {
         // Step 4.1: Check if the current word is not an empty string
+    if (word !== '') {
         // Step 4.2: Take the first character of the word,
         //convert it to uppercase, and add it to the acronym
         //Add the uppercase of first character of word to acronym
-    
+      acronym += word[0].toUpperCase();
+    }
+  }
     // Step 5: Return the constructed acronym
-
+    return acronym;
 }
+
+console.log(acronymize(str1));
 
 const result1 = acronymize(str1);
 console.log(result1);
