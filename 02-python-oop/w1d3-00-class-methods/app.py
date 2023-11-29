@@ -9,12 +9,13 @@ ruben = Guitar("Gibson", "Strato", 8)
 
 cihan = User("Cihan", "Akbaba", 21)
 
-ruben.play().stop_play()
-ruben.change_strings(25)
+# ruben.play().stop_play()
+# ruben.change_strings(25)
 # Guitar.num_of_guitars
-print(Guitar.num_of_guitars)
+# print(Guitar.num_of_guitars)
 
 cihan.play_guitar()
+cihan.guitar.play()
 
 # print(ruben.num_of_guitars())
 

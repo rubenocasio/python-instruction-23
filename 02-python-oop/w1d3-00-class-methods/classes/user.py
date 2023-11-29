@@ -6,12 +6,14 @@ class User:
         self.last_name = last_name
         self.age = age
         self.guitar = Guitar("Les", "Paul")
+
     
     def display_info(self):
         print(f"Name: {self.first_name} {self.last_name}")
         print(f"My age is {self.age}")
     
     def play_guitar(self):
+        print("I'm playing from the Guitar class")
         self.guitar.play()
     
     def stop_guitar(self):
