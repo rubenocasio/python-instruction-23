@@ -35,7 +35,27 @@ const expected5 = '';
  * @returns {string} The given array items as a string separated by the given separator.
  */
 function join(arr, separator) {
-  //Logic goes here
+  //Create an empty bucket/container (string) to hold the results
+  let resultStr = '';
+
+  //Iterate over each element in the array
+  for (let i = 0; i < arr.length; i++) {
+
+    //Append the current array element to our string results
+    // console.log(i)
+    // console.log(arr[i])
+    resultStr += arr[i]
+    // resultStr = resultStr += arr[i]
+
+    //Check if the current element is not the last one in the array.
+    if (i < arr.length - 1) {
+      //Append the seperator to the result string
+      resultStr += separator;
+    }
+  }
+  //Return our bucket (string)
+  // console.log(resultStr)
+  return resultStr;
 }
 
 const result1 = join(arr1, separator1);
