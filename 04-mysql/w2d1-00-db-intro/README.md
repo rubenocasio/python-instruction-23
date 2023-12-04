@@ -11,6 +11,6 @@ The purpose of relational databases is to provide a reliable, scalable, and flex
 
 When we install MySQL, we have the option to spin up the included MySQL Server on our local machines. I recommend that you start it up and leave this instance up and running for the duration of this stack.
 
-We will primarily be interacting with our instance of MySQL Server through an application called MySQL Workbench. It is also possible to interact with the instance through a shell in our terminal. You may have already done this. The command to enter the mysql shell is `mysql -uroot -p` (Mac) and `mysql.exe -uroot -p (Windows)`.
+We will primarily be interacting with our instance of MySQL Server through an application called MySQL Workbench. It is also possible to interact with the instance through a shell in our terminal. You may have already done this. The command to enter the mysql shell is `mysql -u root -p` (Mac) and `mysql.exe -u root -p (Windows)`.
 
 **Please note:** After executing the above command, you will be prompted for your password. As you type, there will be no visual confirmation that you're pressing any keys. Continue typing your password as normal and press enter when complete.
