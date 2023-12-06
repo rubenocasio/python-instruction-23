@@ -22,7 +22,31 @@ const expected3 = false;
  * @returns {boolean} Whether the given strings braces are valid.
  */
 function bracesValid(str) {
-  //Logic goes here
+  //Keep track of opening braces
+  const stack = []
+  const openersToClosers = {
+    '(' : ')',
+    '[' : ']',
+    '{' : '}',
+  }
+  for (const char of str){
+    // console.log(char)
+    //Determines whether an object has a property with the specified name.
+    if(openersToClosers.hasOwnProperty(char)){
+      stack.push(char)
+      // console.log(char)
+    }
+    //.includes - Determines whether an array includes a certain element, returning true or false as appropriate.
+    else if (Object.values(openersToClosers).includes(char)){
+      //.pop - Removes the last element from an array and returns it. If the array is empty,
+      //undefined is returned and the array is not modified.
+      if(stack.length === 0 || openersToClosers[stack.pop()] !== char){
+        return false
+      }
+    }
+  }
+
+  return stack.length === 0
 }
 
 console.log(bracesValid(str1), 'should equal', expected1);
