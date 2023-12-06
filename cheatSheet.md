@@ -1,7 +1,7 @@
 1. mkdir dojosurvey
 2. cd dojosurvey
 3. pipenv shell
-4. pipenv install flask
+4. pipenv install PyMySQL flask
 5. make server.py file
 6. server.py contents:
 from flask import Flask
