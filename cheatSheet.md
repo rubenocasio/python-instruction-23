@@ -2,15 +2,14 @@
 
 - [x] create a new directory
 - [ ] inside the directory create virtural env by running:
-
-```bash
-[python -m] pipenv install flask
-```
-
 - [ ] activate the virtual env every time you open a new terminal:
 
 ```bash
 [python -m] pipenv shell 
+```
+
+```bash
+[python -m] pipenv install PyMySQL flask
 ```
 
 - [ ] create [server.py](server.py)
