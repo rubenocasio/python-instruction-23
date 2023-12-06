@@ -28,6 +28,7 @@ const expected4 = false;
  */
 function parensValid(str) {
   //Logic goes here
+  
 }
 
 console.log(parensValid(str1), 'should equal', expected1);
