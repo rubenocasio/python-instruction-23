@@ -27,7 +27,15 @@ const expected3 = false;
  * @returns {boolean} Whether the second string is a rotated version of the 1st.
  */
 function isRotation(s1, s2) {
-  //Logic goes here
+  if(s1.length !== s2.length){
+    return false
+  }
+  let doubleS1 = s1 + s1
+  // console.log(doubleS1)
+  //Returns true if searchString appears as a substring of the result of converting
+  //this object to a String, at one or more positions that are greater than
+  //or equal to position; otherwise, returns false.
+  return doubleS1.includes(s2)
 }
 
 console.log(isRotation(strA1, strB1), 'should equal', expected1);
