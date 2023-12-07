@@ -39,7 +39,20 @@ to the original position.
  * @returns {string} The string rotated by the given amount.
  */
 function rotateStr(str, amnt) {
-  //Logic goes here
+  amnt = amnt % str.length;
+  // console.log("This is amnt", amnt)
+  
+  if(amnt < 0) {
+    amnt += str.length
+    // console.log("This is my if amnt", amnt)
+  }
+  // ..slice: Returns a section of a string. The index to the beginning of the specified portion of stringObj.
+  let part1 = str.slice(0, str.length - amnt)
+  let part2 = str.slice(str.length - amnt)
+  // console.log("This is part1 slice", part1)
+  // console.log("This is part2 slice", part2)
+  // return part1 + part2
+  return part2 + part1
 }
 
 console.log(rotateStr(str, rotateAmnt1), 'should equal', expected1);
