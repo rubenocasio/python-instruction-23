@@ -34,7 +34,29 @@ const expected4 = true;
  * @returns {boolean} Whether s1 and s2 are anagrams.
  */
 function isAnagram(s1, s2) {
-  //Logic goes here
+  if(s1.length !== s2.length){
+    return false
+  }
+  const charCount = {}
+  //Converts all the alphabetic characters in a string to lowercase.
+  s1 = s1.toLowerCase()
+  s2 = s2.toLowerCase()
+
+  for(const char of s1){
+    // console.log(char)
+    charCount[char] = (charCount[char] || 0 ) +1
+  }
+
+  for(const char of s2){
+    if(!charCount[char]){
+      return false
+    }
+    charCount[char]--
+    // console.log(charCount[char])
+  }
+  //Object that contains the properties and methods. 
+  //.every - Determines whether all the members of an array satisfy the specified test.
+  return Object.values(charCount).every(whatever => whatever === 0)
 }
 
 console.log(isAnagram(strA1, strB1), 'should equal', expected1);
