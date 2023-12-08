@@ -20,12 +20,22 @@
               </tr>
             </thead>
             <tbody>
+              {% for album in albums %}
                 <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
+                  <td>{{ album.title }}</td>
+                  <td>{{ album.artist }}</td>
+                  <td>{{ album.genre }}</td>
+                  <td>
+                    <a href="/album/{{album.id}}" class="btn btn-outline-info mr-1">View</a>
+                    <a href="/album/{{album.id}}/edit" class="btn btn-outline-warning mr-1">Edit</a>
+                    
+                    <form action="/album/{{album.id}}/delete" method="post">
+                        <button type="submit" class="btn btn-outline-danger m-2">Delete</button>
+                    </form>
+
+                    </td>
                 </tr>
+              {% endfor %}
             </tbody>
           </table>
     </div>

@@ -1,7 +1,7 @@
 from flask_app.config.mysqlconnection import connectToMySQL
 # from flask_app.models.album import album
 
-DATABASE = "albums"
+DATABASE = "albums_db"
 
 class Song:
     def __init__(self, data):
@@ -12,4 +12,10 @@ class Song:
         self.updated_at = data["updated_at"]
         self.album_id = data["album_id"]
 
-    
+    @classmethod
+    def get_one(cls, song_id):
+        query = "SELECT * FROM songs WHERE id = %(song_id)s;"
+        data = {"song_id" : song_id}
+        results = connectToMySQL(DATABASE).query_db(query, data)
+        song = Song(results[0])
+        return song
