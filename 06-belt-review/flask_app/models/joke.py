@@ -50,3 +50,26 @@ class Joke:
             joke.user = creator
             jokes.append(joke)
         return jokes
+    
+    @classmethod
+    def get_one_with_user(cls, joke_id):
+        query = "SELECT * FROM jokes JOIN users ON jokes.user_id = users.id WHERE jokes.id = %(joke_id)s;"
+        data = {"joke_id" : joke_id}
+        results = connectToMySQL(DATABASE).query_db(query, data)
+        joke = Joke(results[0])
+        creator = user.User.get_by_id(results[0]["user_id"])
+        joke.user = creator
+        return joke
+    
+    @classmethod
+    def update(cls, form_data):
+        query = "UPDATE jokes SET setup = %(setup)s, punchline = %(punchline)s WHERE id = %(joke_id)s"
+        connectToMySQL(DATABASE).query_db(query, form_data)
+        return
+    
+    @classmethod
+    def delete(cls, joke_id):
+        query = "DELETE FROM jokes WHERE id = %(joke_id)s"
+        data = {"joke_id" : joke_id}
+        connectToMySQL(DATABASE).query_db(query, data)
+        return

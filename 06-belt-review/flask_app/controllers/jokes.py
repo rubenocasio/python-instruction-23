@@ -28,3 +28,31 @@ def create_joke():
         return redirect("/joke/new")
     Joke.create(request.form)
     return redirect("/jokes")
+
+@app.route("/jokes/<int:joke_id>")
+def joke_details(joke_id):
+    if "user_id" not in session:
+        return redirect("/")
+    user = User.get_by_id(session["user_id"])
+    joke = Joke.get_one_with_user(joke_id)
+    return render_template("details.html", user = user, joke = joke)
+
+@app.route("/jokes/<int:joke_id>/edit")
+def edit_joke(joke_id):
+    if "user_id" not in session:
+        return redirect("/")
+    user = User.get_by_id(session["user_id"])
+    joke = Joke.get_one_with_user(joke_id)
+    return render_template("edit.html", user = user, joke = joke)
+
+@app.post("/jokes/<int:joke_id>/update")
+def update_joke(joke_id):
+    if "user_id" not in session:
+        return redirect("/")
+    Joke.update(request.form)
+    return redirect(f"/jokes/{joke_id}")
+
+@app.post("/jokes/<int:joke_id>/delete")
+def delete_joke(joke_id):
+    Joke.delete(joke_id)
+    return redirect("/jokes")

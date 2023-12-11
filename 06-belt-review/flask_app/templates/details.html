@@ -8,7 +8,7 @@
       rel="stylesheet"
       integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
       crossorigin="anonymous" />
-    <title>Jokes Dashboard</title>
+    <title>Jokes Details Page</title>
   </head>
   <body>
 
@@ -31,25 +31,27 @@
 
           <div class="card shadow mb-3">
             <div class="card-body">
-              <h1 class="display-1">Jokes Dashboard</h1>
+              <h1 class="display-1">Jokes Details Page</h1>
               <h2 class="display-3">Welcome, {{ user.first_name}}!</h2>
-              <a href="/joke/new">Add a Dad Joke</a>
-              <a href="/logout">Logout</a>
+              <a href="/jokes">Nevermind</a>
             </div>
           </div>
-          {% for joke in jokes %}
           <div class="card shadow mb-3">
             <div class="card-body">
               <strong>Setup:</strong>
               <p class="display-5">{{ joke.setup }}</p>
               <strong>Punchline:</strong>
               <p class="display-5">{{ joke.punchline }}</p>
+              <p class="display-5">Creator: {{ joke.user.first_name }}</p>
+              <p class="display-5">Date Created: {{ joke.created_at }}</p>
             </div>
-            <div class="card-footer">
-              <a href="/jokes/{{joke.id}}" class="btn btn-outline-info">View Joke</a>
+            <div class="card-footer d-flex gap-2 justify-content-end">
+              <a href="/jokes/{{joke.id}}/edit" class="btn btn-outline-warning">Edit Joke</a>
+              <form action="/jokes/{{joke.id}}/delete" method="post">
+                <button type="submit" class="btn btn-outline-danger">Delete</button>
+              </form>
             </div>
           </div>
-          {% endfor %}
         </div>
       </div>
     </main>

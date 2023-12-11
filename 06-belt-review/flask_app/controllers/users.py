@@ -50,9 +50,7 @@ def login():
 #         return render_template('dashboard.html', users = users)
 #     return redirect('/')
 
-@app.post('/logout')
+@app.get('/logout')
 def logout():
-    if 'user_id' in session:
-        # session.pop('user_id', None)
-        session.clear()
+    session.clear()
     return redirect('/')
