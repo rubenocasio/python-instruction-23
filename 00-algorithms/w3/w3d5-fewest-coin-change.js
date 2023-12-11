@@ -30,7 +30,32 @@ const expected5 = { quarter: 3, dime: 1, nickel: 1, penny: 3 };
  *    needed.
  */
 function fewestCoinChange(cents) {
-  //Logic goes here
+  const coins = {}
+
+  if(cents >= 25){
+    //Returns the greatest integer less than or equal to its numeric argument.
+    coins.quarter = Math.floor(cents / 25) //1
+    cents -= coins.quarter * 25;
+  }
+
+  if(cents >= 10){
+    //Returns the greatest integer less than or equal to its numeric argument.
+    coins.dime = Math.floor(cents / 10) //1
+    cents -= coins.dime * 10;
+  }
+
+  if(cents >= 5){
+    //Returns the greatest integer less than or equal to its numeric argument.
+    coins.nickel = Math.floor(cents / 5) //1
+    cents -= coins.nickel * 5;
+  }
+  
+  if(cents >= 1){
+    //Returns the greatest integer less than or equal to its numeric argument.
+    coins.penny = Math.floor(cents / 1) //1
+    cents -= coins.penny * cents;
+  }
+  return coins
 }
 
 console.log(fewestCoinChange(cents1), 'should equal:', expected1);
