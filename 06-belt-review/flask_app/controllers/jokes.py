@@ -2,6 +2,7 @@ from flask import render_template, redirect, request, session, flash
 from flask_app import app
 from flask_app.models.user import User
 from flask_app.models.joke import Joke
+from flask_app.models.groan import Groan
 
 
 # @app.route("/jokes")
@@ -35,7 +36,8 @@ def joke_details(joke_id):
         return redirect("/")
     user = User.get_by_id(session["user_id"])
     joke = Joke.get_one_with_user(joke_id)
-    return render_template("details.html", user = user, joke = joke)
+    count = Groan.get_groan_count(joke_id)
+    return render_template("details.html", user = user, joke = joke, count = count)
 
 @app.route("/jokes/<int:joke_id>/edit")
 def edit_joke(joke_id):

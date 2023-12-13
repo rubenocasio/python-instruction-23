@@ -1,6 +1,7 @@
 from flask import flash
 from pprint import pprint
 from flask_app.models import user
+from flask_app.models import groan
 from flask_app.config.mysqlconnection import connectToMySQL
 
 DATABASE = "belt_exam_db"
@@ -27,6 +28,14 @@ class Joke:
             flash("Setup line is invalid and needs to be 3 characters or more.", 'joke')
             is_valid = False
         return is_valid
+    
+    def is_groaned_at_by(self, user_id):
+        has_groaned = False
+        groans = groan.Groan.get_all_by_joke_id(self.id)
+        for g in groans:
+            if g.user_id == user_id:
+                has_groaned = True
+        return has_groaned
     
     @classmethod
     def create(cls, form_data):

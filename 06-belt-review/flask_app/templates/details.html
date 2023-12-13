@@ -42,8 +42,9 @@
               <p class="display-5">{{ joke.setup }}</p>
               <strong>Punchline:</strong>
               <p class="display-5">{{ joke.punchline }}</p>
-              <p class="display-5">Creator: {{ joke.user.first_name }}</p>
-              <p class="display-5">Date Created: {{ joke.created_at }}</p>
+              <p class="fs-3">Creator: {{ joke.user.first_name }}</p>
+              <p class="fs-3">Date Created: {{ joke.created_at }}</p>
+              <p class="fs-3">Groans: {{ count }}</p>
             </div>
             <div class="card-footer d-flex gap-2 justify-content-end">
               <a href="/jokes/{{joke.id}}/edit" class="btn btn-outline-warning">Edit Joke</a>

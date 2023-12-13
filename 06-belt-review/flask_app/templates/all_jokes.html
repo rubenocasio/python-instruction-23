@@ -46,7 +46,12 @@
               <p class="display-5">{{ joke.punchline }}</p>
             </div>
             <div class="card-footer">
-              <a href="/jokes/{{joke.id}}" class="btn btn-outline-info">View Joke</a>
+              <a href="/jokes/{{joke.id}}" class="btn btn-outline-info mr-2">View Joke</a>
+              <form action="/groans/create" method="post">
+                  <input type="hidden" name="user_id" value="{{ session.user_id }}"/>
+                  <input type="hidden" name="joke_id" value="{{ joke.id }}"/>
+                  <button type="submit" class="btn btn-outline-warning {{ 'disabled' if joke.is_groaned_at_by(session.user_id) else '' }}">Groan</button>
+              </form>
             </div>
           </div>
           {% endfor %}
