@@ -30,16 +30,41 @@ const expected4 = [1];
  * @returns {Array<number>} The given array deduped.
  */
 function dedupeSorted(nums) {
-  
+  const deduped = []
+
+  for(let i = 0; i < nums.length; i++){
+    // if(nums[i] !== nums[i-1])
+    if(nums[i] !== nums[i - 1]){
+      deduped.push(nums[i])
+    }
+  }
+  return deduped
 }
 
 console.log(dedupeSorted(nums1), 'should equal', expected1);
-console.log(dedupeSorted(nums2), 'should equal', expected2);
-console.log(dedupeSorted(nums3), 'should equal', expected3);
-console.log(dedupeSorted(nums4), 'should equal', expected4);
+console.log(dedupeSorted(nums2));
+console.log(dedupeSorted(nums3));
+console.log(dedupeSorted(nums4));
 
 function dedupeSortedInPlace(nums) {
-  //Logic goes here
+  // 'j' is used as an index to place unique elements in the array.
+  let j = 0;
+
+  // Iterate through each element in the array.
+  for (let i = 0; i < nums.length; i++) {
+      // Check if it's the first element or if it's different from the previous element.
+      if (i === 0 || nums[i] !== nums[i - 1]) {
+          // If it's the first element or a unique element, place it at index 'j' and increment 'j'.
+          nums[j++] = nums[i];
+      }
+  }
+
+  // After the loop, 'j' is the new length of the array without duplicates.
+  // Resize the array to remove the duplicates that have been shifted to the end.
+  nums.length = j;
+
+  // Return the modified array, which now has only unique elements and no duplicates.
+  return nums;
 }
 
 console.log(dedupeSortedInPlace(nums1), 'should equal', expected1);
